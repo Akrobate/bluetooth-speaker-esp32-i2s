@@ -23,11 +23,7 @@ module motherBoardComponent(
         genericModule(z_size = z_size, x_points = 7, y_points = 7, color = "FireBrick");
     }
 
-    module sdCardModule(z_size = 16) {
-        genericModule(z_size = z_size, x_points = 11, y_points = 6, color = "RoyalBlue");
-    }
-
-    module esp32s3(z_size = 16) {
+    module esp32(z_size = 16) {
         genericModule(z_size = z_size, x_points = 22, y_points = 11, color = "DarkSlateGray");
     }
 
@@ -36,27 +32,26 @@ module motherBoardComponent(
     }
 
     breadboard(
-        x_points = 25, y_points = 32,
+        x_points = 22, y_points = 32,
         throw_3mm_coord_list = mother_board_bolt_throws_list,
-        draw_throws = draw_throws, $fn = 16
+        draw_throws = draw_throws, $fn = 4
     );
 
-
     module electronicModules() {
-        translateBreadboard(3, 11)
-            esp32s3();
+        translateBreadboard(0, 11)
+            esp32();
 
-        translateBreadboard(16, 1)
-            sdCardModule();
-
-        translateBreadboard(7, 0)
+        translateBreadboard(2, 0)
+            dacModule();
+        
+        translateBreadboard(12, 0)
             dacModule();
 
         translateBreadboard(0, 26)
             dc2dc();
     }
 
-    #translate([0, 0, 1.5])
+    translate([0, 0, 1.5])
         electronicModules();
 
         forEachCoord([
