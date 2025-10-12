@@ -1,8 +1,18 @@
+include <../../libraries/commons.scad>;
+use <roundedPaneSubpiece.scad>
 
+module housingBorderSubpiece(
+    x_size = 50,
+    y_size = 50,
+    z_size = 15,
+    round_edges_radius = 5,
+    border_thickness = 2,
+    insert_throw_diameter = 2,
+    insert_throw_length = 2,
+    facade_throws_margin = 2
+) {
 
-module housingBorderSubpiece() {
-
-    local_z_size = z_size - case_external_panes_thickness * 2;
+    epsilon = 0.1;
 
     thorws_coords_list = [
         [facade_throws_margin, facade_throws_margin],
@@ -20,7 +30,7 @@ module housingBorderSubpiece() {
                     [
                         x_size,
                         y_size,
-                        local_z_size,
+                        z_size,
                     ],
                     round_edges_radius,
                     round_edges_radius,
@@ -31,7 +41,7 @@ module housingBorderSubpiece() {
                 translate([
                     border_thickness,
                     border_thickness,
-                    -case_external_panes_thickness
+                    -epsilon
                 ])
                     roundedPaneSubpiece(
                         [
@@ -50,7 +60,7 @@ module housingBorderSubpiece() {
                 forEachCoord(thorws_coords_list)
                     cylinder(
                         d = 10,
-                        h = local_z_size,
+                        h = z_size,
                         center = false,
                         $fn = 100
                     );
@@ -67,7 +77,7 @@ module housingBorderSubpiece() {
                     $fn = 100
                 );
 
-        translate([0, 0, local_z_size - insert_throw_length])
+        translate([0, 0, z_size - insert_throw_length])
             forEachCoord(thorws_coords_list)
                 cylinder(
                     d = insert_throw_diameter,
@@ -78,4 +88,7 @@ module housingBorderSubpiece() {
     }
 
 }
+
+
+housingBorderSubpiece();
 
