@@ -2,14 +2,16 @@ include <../../libraries/commons.scad>;
 use <roundedPaneSubpiece.scad>
 
 module housingBorderSubpiece(
-    x_size = 50,
-    y_size = 50,
-    z_size = 15,
+    x_size = 60,
+    y_size = 60,
+    z_size = 30,
     round_edges_radius = 5,
-    border_thickness = 2,
-    insert_throw_diameter = 2,
+    border_thickness = 4,
+    insert_throw_diameter = 4.25,
     insert_throw_length = 2,
-    facade_throws_margin = 2
+    insert_holder_diameter = 10,
+    facade_throws_margin = 5,
+    _fn = 100
 ) {
 
     epsilon = 0.1;
@@ -21,8 +23,6 @@ module housingBorderSubpiece(
         [x_size - facade_throws_margin, facade_throws_margin],
     ];
 
-
-    //render() {
     difference() {
         union() {
             difference() {
@@ -35,7 +35,7 @@ module housingBorderSubpiece(
                     round_edges_radius,
                     round_edges_radius,
                     center = false,
-                    $fn = 100
+                    $fn = _fn
                 );
 
                 translate([
@@ -52,17 +52,17 @@ module housingBorderSubpiece(
                         round_edges_radius,
                         round_edges_radius,
                         center = false,
-                        $fn = 100
+                        $fn = _fn
                     );
             }
 
             translate([0, 0, 0])
                 forEachCoord(thorws_coords_list)
                     cylinder(
-                        d = 10,
+                        d = insert_holder_diameter,
                         h = z_size,
                         center = false,
-                        $fn = 100
+                        $fn = _fn
                     );
 
         }
@@ -74,7 +74,7 @@ module housingBorderSubpiece(
                     d = insert_throw_diameter,
                     h = insert_throw_length + epsilon,
                     center = false,
-                    $fn = 100
+                    $fn = _fn
                 );
 
         translate([0, 0, z_size - insert_throw_length])
@@ -83,7 +83,7 @@ module housingBorderSubpiece(
                     d = insert_throw_diameter,
                     h = insert_throw_length + epsilon,
                     center = false,
-                    $fn = 100
+                    $fn = _fn
                 );
     }
 

@@ -50,6 +50,7 @@ module housingBorderPiece(
             border_thickness = border_thickness,
             insert_throw_diameter = insert_throw_diameter,
             insert_throw_length = insert_throw_length,
+            insert_holder_diameter = 10,
             facade_throws_margin = facade_throws_margin
         );
 
