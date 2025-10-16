@@ -19,10 +19,6 @@ translate([
         speaker40mm();
 }
 
-//translate([0, 0, -15])
-//    rotate([0,0,90])
-//        battery(true);
-
 translate([case_external_x_size / 2, 15, case_external_z_size / 2])
     battery(true);
 
