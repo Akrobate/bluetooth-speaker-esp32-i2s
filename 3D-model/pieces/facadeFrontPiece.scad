@@ -42,8 +42,34 @@ module facadeFrontPiece(
                 [x_size - throws_margin, y_size - throws_margin,],
             ])
                 cylinder(h = z_size * 2, d = throws_diameter, $fn = $fn);
+
+
+        
+    }
+
+
+    section(10, 40, true);
+
+}
+
+
+module section(width, length, centered = true) {
+    if (centered) {
+        translate([-length / 2, 0, 0])
+            hull() {
+                cylinder(d = width, h = 100);
+                translate([length, 0, 0])
+                    cylinder(d = width, h = 100);
+            }
+    } else {
+        hull() {
+            cylinder(d = width, h = 100);
+            translate([length, 0, 0])
+                cylinder(d = width, h = 100);
+        }
     }
 }
+
 
 facadeFrontPiece();
 
