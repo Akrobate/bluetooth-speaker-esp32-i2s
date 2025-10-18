@@ -41,31 +41,39 @@ module facadeFrontPiece(
                 [throws_margin, y_size - throws_margin],
                 [x_size - throws_margin, y_size - throws_margin,],
             ])
-                cylinder(h = z_size * 2, d = throws_diameter, $fn = $fn);
+                cylinder(h = z_size * 2, d = throws_diameter, $fn = $fn);        
+    
+
+        translate([25, -30 / 2 + y_size / 2, 0])
+            for(offset = [0, 10, 20, 30])
+                translate([0, offset, 0])
+                    section(width = 7, length = 30, center = true);
 
 
-        
+        translate([x_size - 25, -30 / 2 + y_size / 2, 0])
+            for(offset = [0, 10, 20, 30])
+                translate([0, offset, 0])
+                    section(width = 7, length = 30, center = true);
     }
-
-
-    section(10, 40, true);
-
 }
 
 
-module section(width, length, centered = true) {
-    if (centered) {
-        translate([-length / 2, 0, 0])
+module section(width, length, center = true) {
+    height = 40;
+    translate([0, 0, -height / 2]) {
+        if (center) {
+            translate([-length / 2, 0, 0])
+                hull() {
+                    cylinder(d = width, h = height);
+                    translate([length, 0, 0])
+                        cylinder(d = width, h = height);
+                }
+        } else {
             hull() {
-                cylinder(d = width, h = 100);
+                cylinder(d = width, h = height);
                 translate([length, 0, 0])
-                    cylinder(d = width, h = 100);
+                    cylinder(d = width, h = height);
             }
-    } else {
-        hull() {
-            cylinder(d = width, h = 100);
-            translate([length, 0, 0])
-                cylinder(d = width, h = 100);
         }
     }
 }
