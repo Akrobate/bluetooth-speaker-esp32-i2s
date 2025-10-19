@@ -23,6 +23,17 @@ housing_facades_throws_diameter = wood_throw_m3_diameter;
 facade_front_round_edges_radius = 5;
 facade_throws_margin = 5;
 
+// speakers
+speaker_1_x_y_coords = [
+    case_external_x_size / 2 - 25,
+    case_external_y_size / 2
+];
+
+speaker_2_x_y_coords = [
+    case_external_x_size / 2 + 25,
+    case_external_y_size / 2
+];
+
 
 // facade corners
 facade_fn = 100;
