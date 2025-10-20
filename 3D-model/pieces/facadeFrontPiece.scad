@@ -3,6 +3,7 @@ use <./../libraries/commons.scad>
 use <./../libraries/electronics.scad>
 
 use <./subpieces/roundedPaneSubpiece.scad>
+use <./subpieces/speakerGridSubpiece.scad>
 
 
  /**
@@ -42,7 +43,7 @@ module facadeFrontPiece(
                 [x_size - throws_margin, y_size - throws_margin,],
             ])
                 cylinder(h = z_size * 2, d = throws_diameter, $fn = $fn);        
-    
+
 
         translate([25, -30 / 2 + y_size / 2, 0])
             for(offset = [0, 10, 20, 30])
@@ -57,26 +58,6 @@ module facadeFrontPiece(
     }
 }
 
-
-module section(width, length, center = true) {
-    height = 40;
-    translate([0, 0, -height / 2]) {
-        if (center) {
-            translate([-length / 2, 0, 0])
-                hull() {
-                    cylinder(d = width, h = height);
-                    translate([length, 0, 0])
-                        cylinder(d = width, h = height);
-                }
-        } else {
-            hull() {
-                cylinder(d = width, h = height);
-                translate([length, 0, 0])
-                    cylinder(d = width, h = height);
-            }
-        }
-    }
-}
 
 
 facadeFrontPiece();

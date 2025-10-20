@@ -5,8 +5,6 @@ use <../pieces/facadeFrontPiece.scad>
 use <../pieces/facadeBackPiece.scad>
 
 module housingComponent() {
-
-
     #translate([0, 0, case_external_panes_thickness])
         housingBorderPiece();
 

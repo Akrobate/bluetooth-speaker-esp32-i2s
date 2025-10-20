@@ -9,11 +9,12 @@ use <pieces/housingBorderPiece.scad>
 use <pieces/facadeFrontPiece.scad>
 
 
+translate([0, 0, case_external_z_size - case_external_panes_thickness]) {
+    translate(speaker_1_x_y_coords)
+        speaker40mm();
 
-translate(speaker_1_x_y_coords)
-    speaker40mm();
-
-translate(speaker_2_x_y_coords)
-    speaker40mm();
+    translate(speaker_2_x_y_coords)
+        speaker40mm();
+}
 
 housingComponent();
