@@ -50,11 +50,6 @@ module facadeFrontPiece(
                 translate([0, offset, 0])
                     section(width = 7, length = 30, center = true);
 
-
-        translate([x_size - 25, -30 / 2 + y_size / 2, 0])
-            for(offset = [0, 10, 20, 30])
-                translate([0, offset, 0])
-                    section(width = 7, length = 30, center = true);
     }
 }
 
