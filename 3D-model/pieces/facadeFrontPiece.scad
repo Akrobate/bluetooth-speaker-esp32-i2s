@@ -44,12 +44,9 @@ module facadeFrontPiece(
             ])
                 cylinder(h = z_size * 2, d = throws_diameter, $fn = $fn);        
 
-
-        translate([25, -30 / 2 + y_size / 2, 0])
-            for(offset = [0, 10, 20, 30])
-                translate([0, offset, 0])
-                    section(width = 7, length = 30, center = true);
-
+        for(item = [speaker_1_x_y_coords, speaker_2_x_y_coords])
+            translate(item)
+                speakerGrid(x_size = 40, section_count = 6, section_y_size = 4, section_y_margin = 2);
     }
 }
 
