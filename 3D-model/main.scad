@@ -17,4 +17,7 @@ translate([0, 0, case_external_z_size - case_external_panes_thickness]) {
         speaker40mm();
 }
 
+translate([case_external_x_size / 2, 0, 0])
+    battery(center = true);
+
 housingComponent();

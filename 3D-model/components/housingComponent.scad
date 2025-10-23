@@ -8,7 +8,7 @@ module housingComponent() {
     #translate([0, 0, case_external_panes_thickness])
         housingBorderPiece();
 
-    facadeBackPiece();
+    *facadeBackPiece();
 
     translate([0, 0, case_external_z_size - case_external_panes_thickness])
         facadeFrontPiece();

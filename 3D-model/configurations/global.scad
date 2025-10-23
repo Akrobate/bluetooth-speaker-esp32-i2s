@@ -12,8 +12,8 @@ throw_m3_diameter = 3.5;
 mil = 2.54;
 
 // external size
-case_external_x_size = 105;
-case_external_y_size = 66;
+case_external_x_size = 150; // 105
+case_external_y_size = 55; // 66
 case_external_z_size = 32;
 case_external_panes_thickness = 4.8;
 
@@ -23,14 +23,17 @@ housing_facades_throws_diameter = wood_throw_m3_diameter;
 facade_front_round_edges_radius = 5;
 facade_throws_margin = 5;
 
+
+speaker_center_offset = 45; // 25
+
 // speakers
 speaker_1_x_y_coords = [
-    case_external_x_size / 2 - 25,
+    case_external_x_size / 2 - speaker_center_offset,
     case_external_y_size / 2
 ];
 
 speaker_2_x_y_coords = [
-    case_external_x_size / 2 + 25,
+    case_external_x_size / 2 + speaker_center_offset,
     case_external_y_size / 2
 ];
 
