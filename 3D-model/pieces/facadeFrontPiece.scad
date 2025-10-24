@@ -35,15 +35,8 @@ module facadeFrontPiece(
                 $fn = $fn
             );
 
-        translate([0, 0, -z_size / 2])
-            forEachCoord([
-                [throws_margin, throws_margin],
-                [x_size - throws_margin, throws_margin],
-                [throws_margin, y_size - throws_margin],
-                [x_size - throws_margin, y_size - throws_margin,],
-            ])
-                cylinder(h = z_size * 2, d = throws_diameter, $fn = $fn);        
-
+        centeredFourPaneThrows([x_size, y_size, z_size], throws_margin, throws_diameter, $fn = $fn);
+     
         for(item = [speaker_1_x_y_coords, speaker_2_x_y_coords])
             translate(item)
                 speakerGrid(x_size = 40, section_count = 6, section_y_size = 4, section_y_margin = 2);
