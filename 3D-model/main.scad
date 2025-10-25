@@ -1,6 +1,7 @@
 include <configurations/global.scad>
 
 use <assets/battery/battery.scad>
+include <assets/battery/configurations.scad>
 use <assets/speaker40mm/speaker40mm.scad>
 
 use <components/housingComponent.scad>
@@ -17,7 +18,14 @@ translate([0, 0, case_external_z_size - case_external_panes_thickness]) {
         speaker40mm();
 }
 
-translate([case_external_x_size / 2, 0, 0])
-    battery(center = true);
+
+
+translate([
+    case_external_x_size / 2,
+    housingBorderPiece_border_thickness,
+    case_external_panes_thickness
+])
+    translate([- Battery_x_size / 2, 0, 0])
+        battery(center = false);
 
 housingComponent();
