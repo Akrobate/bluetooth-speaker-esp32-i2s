@@ -24,16 +24,16 @@ facade_front_round_edges_radius = 5;
 facade_throws_margin = 5;
 
 
-speaker_center_offset = 60; // 25
+speaker_border_offset = 30; // 25
 
 // speakers
 speaker_1_x_y_coords = [
-    case_external_x_size / 2 - speaker_center_offset,
+    speaker_border_offset,
     case_external_y_size / 2
 ];
 
 speaker_2_x_y_coords = [
-    case_external_x_size / 2 + speaker_center_offset,
+    case_external_x_size - speaker_border_offset,
     case_external_y_size / 2
 ];
 
