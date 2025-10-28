@@ -1,8 +1,9 @@
 include <configurations/global.scad>
 
-use <assets/battery/battery.scad>
 include <assets/battery/configurations.scad>
+use <assets/battery/battery.scad>
 use <assets/speaker40mm/speaker40mm.scad>
+use <assets/usb-connector/usbConnector.scad>
 
 use <components/housingComponent.scad>
 
@@ -29,3 +30,7 @@ translate([
         battery(center = false);
 
 housingComponent();
+
+translate(chargerConnector_position_coords)
+    rotate([0, -90, 0])
+        usbConnector();

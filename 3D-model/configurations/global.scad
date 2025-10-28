@@ -71,6 +71,6 @@ Battery_z_size = 21.4;
 Battery_x_position = case_external_x_size / 2 - Battery_x_size / 2 + 2.5;
 
 // Usb Connector
-//usbConnectorThrowEnveloppe_margin = 0.25;
-//usbConnectorThrowEnveloppe_length = 20;
-//usbConnectorThrowEnveloppe_fn = 100;
+usbConnectorThrowEnveloppe_margin = 0.25;
+usbConnectorThrowEnveloppe_length = 20;
+usbConnectorThrowEnveloppe_fn = 100;

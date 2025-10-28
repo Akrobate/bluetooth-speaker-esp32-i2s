@@ -40,7 +40,6 @@ module housingBorderPiece(
 
     local_z_size = z_size - case_external_panes_thickness * 2;
 
-    //render() {
     difference() {
         housingBorderSubpiece(
             x_size = x_size,
@@ -54,6 +53,14 @@ module housingBorderPiece(
             facade_throws_margin = facade_throws_margin
         );
 
+        // CHARGER CONNECTOR
+        translate([
+            chargerConnector_position_coords.x,
+            chargerConnector_position_coords.y,
+            chargerConnector_position_coords.z - case_external_panes_thickness
+        ])
+            rotate([0, -90, 0])
+                usbConnectorThrowEnveloppe();
 
         // Battery throw
 //        color("Green")
@@ -70,18 +77,7 @@ module housingBorderPiece(
 //            rotate([-90,0,0])
 //                onOffButtonThrowEnveloppe();
                 
-
-        // CHARGER CONNECTOR
-//        translate([
-//            chargerConnector_position_coords.x,
-//            chargerConnector_position_coords.y,
-//            chargerConnector_position_coords.z - case_external_panes_thickness
-//        ])
-//            rotate([0, -90, 0])
-//                usbConnectorThrowEnveloppe();
-                
     }
-    //}
 }
 
 
