@@ -4,6 +4,7 @@ include <assets/battery/configurations.scad>
 use <assets/battery/battery.scad>
 use <assets/speaker40mm/speaker40mm.scad>
 use <assets/usb-connector/usbConnector.scad>
+use <assets/on-off-button/onOffButton.scad>
 
 use <components/housingComponent.scad>
 
@@ -34,3 +35,8 @@ housingComponent();
 translate(chargerConnector_position_coords)
     rotate([0, -90, 0])
         usbConnector();
+
+
+translate(photoButton_position_coords)
+    rotate([-90,0,0])
+        onOffButton();

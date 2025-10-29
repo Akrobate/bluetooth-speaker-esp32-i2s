@@ -62,20 +62,23 @@ module housingBorderPiece(
             rotate([0, -90, 0])
                 usbConnectorThrowEnveloppe();
 
+        // Button
+        translate([
+            photoButton_position_coords.x,
+            photoButton_position_coords.y,
+            photoButton_position_coords.z - case_external_panes_thickness
+        ])
+            rotate([-90,0,0])
+                onOffButtonThrowEnveloppe();
+
+
         // Battery throw
 //        color("Green")
 //            translate([Battery_x_position + Battery_x_size / 2, nut_encaps_depth, local_z_size / 2])
 //                rotate([90, 0, 0])
 //                    nutEncapsEnveloppe(border_thickness * 4);
 
-        // Button
-//        translate([
-//            photoButton_position_coords.x,
-//            photoButton_position_coords.y,
-//            photoButton_position_coords.z - case_external_panes_thickness
-//        ])
-//            rotate([-90,0,0])
-//                onOffButtonThrowEnveloppe();
+
                 
     }
 }
