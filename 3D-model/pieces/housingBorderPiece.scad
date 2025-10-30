@@ -25,7 +25,7 @@ module housingBorderPiece(
     insert_throw_diameter = insert_throw_diameter,
     insert_throw_length = insert_throw_length,
     facade_throws_margin = facade_throws_margin,
-    photoButton_position_coords = photoButton_position_coords,
+    onOffButton_position_coords = onOffButton_position_coords,
     chargerConnector_position_coords = chargerConnector_position_coords,
     usb_connector_throw_diameter = usb_connector_throw_diameter,
     usb_connector_throw_fn = usb_connector_throw_fn,
@@ -64,9 +64,9 @@ module housingBorderPiece(
 
         // Button
         translate([
-            photoButton_position_coords.x,
-            photoButton_position_coords.y,
-            photoButton_position_coords.z - case_external_panes_thickness
+            onOffButton_position_coords.x,
+            onOffButton_position_coords.y,
+            onOffButton_position_coords.z - case_external_panes_thickness
         ])
             rotate([-90,0,0])
                 onOffButtonThrowEnveloppe();

@@ -54,7 +54,7 @@ motherBoardComponent_breadboard_camera_point_position = [5, 3];
 breadboard_z_size = 1.5;
 
 
-photoButton_position_coords = [19, case_external_y_size, case_external_z_size / 2];
+onOffButton_position_coords = [19, case_external_y_size, case_external_z_size / 2];
 chargerConnector_position_coords = [0, 18, case_external_z_size / 2];
 
 onOffButtonThrowEnveloppe_fn = 250;

@@ -37,6 +37,6 @@ translate(chargerConnector_position_coords)
         usbConnector();
 
 
-translate(photoButton_position_coords)
+translate(onOffButton_position_coords)
     rotate([-90,0,0])
         onOffButton();
