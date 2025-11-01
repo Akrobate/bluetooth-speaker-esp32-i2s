@@ -1,18 +1,26 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+
+#define PIN_BUTTON_PLAY_PAUSE 1
+#define PIN_BUTTON_NEXT 2
+#define PIN_BUTTON_PREVIOUX 3
+#define PIN_VOLUME_UP 4
+#define PIN_VOLUME_DOWN 5
+
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+
+    int result = myFunction(2, 3);
+
+    pinMode(PIN_BUTTON_PLAY_PAUSE, INPUT);
+    pinMode(PIN_BUTTON_NEXT, INPUT);
+    pinMode(PIN_BUTTON_PREVIOUX, INPUT);
+    pinMode(PIN_VOLUME_UP, INPUT);
+    pinMode(PIN_VOLUME_DOWN, INPUT);
+
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+
 }
