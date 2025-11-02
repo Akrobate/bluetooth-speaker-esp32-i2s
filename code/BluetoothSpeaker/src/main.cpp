@@ -9,15 +9,11 @@
 
 
 void setup() {
-
-    int result = myFunction(2, 3);
-
     pinMode(PIN_BUTTON_PLAY_PAUSE, INPUT);
     pinMode(PIN_BUTTON_NEXT, INPUT);
     pinMode(PIN_BUTTON_PREVIOUX, INPUT);
     pinMode(PIN_VOLUME_UP, INPUT);
     pinMode(PIN_VOLUME_DOWN, INPUT);
-
 }
 
 void loop() {
