@@ -1,22 +1,39 @@
 #include <Arduino.h>
+#include <Toggle.h>
+#include <configuration.h>
 
+Toggle * button_play_pause;
+Toggle * button_next;
+Toggle * button_previous;
+Toggle * button_volume_up;
+Toggle * button_volume_down;
 
-#define PIN_BUTTON_PLAY_PAUSE 1
-#define PIN_BUTTON_NEXT 2
-#define PIN_BUTTON_PREVIOUX 3
-#define PIN_VOLUME_UP 4
-#define PIN_VOLUME_DOWN 5
-
+void updateButtons();
 
 void setup() {
-    pinMode(PIN_BUTTON_PLAY_PAUSE, INPUT);
-    pinMode(PIN_BUTTON_NEXT, INPUT);
-    pinMode(PIN_BUTTON_PREVIOUX, INPUT);
-    pinMode(PIN_VOLUME_UP, INPUT);
-    pinMode(PIN_VOLUME_DOWN, INPUT);
+    pinMode(PIN_BUTTON_PLAY_PAUSE, INPUT_PULLUP);
+    pinMode(PIN_BUTTON_NEXT, INPUT_PULLUP);
+    pinMode(PIN_BUTTON_PREVIOUX, INPUT_PULLUP);
+    pinMode(PIN_VOLUME_UP, INPUT_PULLUP);
+    pinMode(PIN_VOLUME_DOWN, INPUT_PULLUP);
+
+    button_play_pause = new Toggle(PIN_BUTTON_PLAY_PAUSE);
+    button_next = new Toggle(PIN_BUTTON_NEXT);
+    button_previous = new Toggle(PIN_BUTTON_PREVIOUX);
+    button_volume_up = new Toggle(PIN_VOLUME_UP);
+    button_volume_down = new Toggle(PIN_VOLUME_DOWN);
 }
 
 void loop() {
-
-
+    updateButtons();
 }
+
+
+void updateButtons() {
+    button_play_pause->poll();
+    button_next->poll();
+    button_previous->poll();
+    button_volume_up->poll();
+    button_volume_down->poll();
+}
+
