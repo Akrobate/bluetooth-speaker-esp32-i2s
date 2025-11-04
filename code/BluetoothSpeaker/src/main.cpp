@@ -1,5 +1,7 @@
 #include <Arduino.h>
 #include <Toggle.h>
+#include <AudioTools.h>
+#include <BluetoothA2DPSink.h>
 #include <configuration.h>
 
 Toggle * button_play_pause;
@@ -7,6 +9,10 @@ Toggle * button_next;
 Toggle * button_previous;
 Toggle * button_volume_up;
 Toggle * button_volume_down;
+
+I2SStream i2s;
+BluetoothA2DPSink a2dp_sink(i2s);
+
 
 void updateButtons();
 
@@ -22,6 +28,8 @@ void setup() {
     button_previous = new Toggle(PIN_BUTTON_PREVIOUX);
     button_volume_up = new Toggle(PIN_VOLUME_UP);
     button_volume_down = new Toggle(PIN_VOLUME_DOWN);
+
+    a2dp_sink.start("MyMusic");
 }
 
 void loop() {
