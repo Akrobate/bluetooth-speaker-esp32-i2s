@@ -1,5 +1,9 @@
 #pragma once
 
+// Global definition
+#define BLUETOOTH_NAME "MySpeaker"
+
+// Pins definition
 #define PIN_BUTTON_PLAY_PAUSE 1
 #define PIN_BUTTON_NEXT 2
 #define PIN_BUTTON_PREVIOUX 3

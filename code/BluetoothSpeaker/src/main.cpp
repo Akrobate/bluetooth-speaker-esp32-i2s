@@ -29,7 +29,7 @@ void setup() {
     button_volume_up = new Toggle(PIN_VOLUME_UP);
     button_volume_down = new Toggle(PIN_VOLUME_DOWN);
 
-    a2dp_sink.start("MyMusic");
+    a2dp_sink.start(BLUETOOTH_NAME);
 }
 
 void loop() {
