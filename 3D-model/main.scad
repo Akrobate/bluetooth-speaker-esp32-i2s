@@ -7,6 +7,7 @@ use <assets/usb-connector/usbConnector.scad>
 use <assets/on-off-button/onOffButton.scad>
 
 use <components/housingComponent.scad>
+use <components/motherBoardComponent.scad>
 
 use <pieces/housingBorderPiece.scad>
 use <pieces/facadeFrontPiece.scad>
@@ -40,3 +41,6 @@ translate(chargerConnector_position_coords)
 translate(onOffButton_position_coords)
     rotate([-90,0,0])
         onOffButton();
+
+
+motherBoardComponent();
