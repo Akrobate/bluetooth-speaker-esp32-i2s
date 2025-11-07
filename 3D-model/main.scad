@@ -43,4 +43,7 @@ translate(onOffButton_position_coords)
         onOffButton();
 
 
-motherBoardComponent();
+dacModule();
+
+translate([40,0,0])
+dacModule();

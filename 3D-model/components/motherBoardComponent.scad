@@ -7,6 +7,18 @@ use <./../libraries/electronics.scad>
 use <./../libraries/commons.scad>
 
 
+module dacModule(z_size = 16) {
+    genericModule(z_size = z_size, x_points = 7, y_points = 7, color = "FireBrick");
+}
+
+module esp32(z_size = 16) {
+    genericModule(z_size = z_size, x_points = 22, y_points = 11, color = "DarkSlateGray");
+}
+
+module dc2dc(z_size = 16) {
+    genericModule(z_size = z_size, x_points = 15, y_points = 6, color = "RoyalBlue");
+}
+
 /**
  * motherBoardComponent
  * @name motherBoardComponent
@@ -19,17 +31,6 @@ module motherBoardComponent(
     draw_throws = false
 ) {
 
-    module dacModule(z_size = 16) {
-        genericModule(z_size = z_size, x_points = 7, y_points = 7, color = "FireBrick");
-    }
-
-    module esp32(z_size = 16) {
-        genericModule(z_size = z_size, x_points = 22, y_points = 11, color = "DarkSlateGray");
-    }
-
-    module dc2dc(z_size = 16) {
-        genericModule(z_size = z_size, x_points = 15, y_points = 6, color = "RoyalBlue");
-    }
 
     breadboard(
         x_points = 22, y_points = 32,
