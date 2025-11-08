@@ -22,7 +22,6 @@ translate([0, 0, case_external_z_size - case_external_panes_thickness]) {
 }
 
 
-
 translate([
     case_external_x_size / 2,
     housingBorderPiece_border_thickness,
@@ -43,7 +42,14 @@ translate(onOffButton_position_coords)
         onOffButton();
 
 
+
+// Electronic parts
+
 dacModule();
 
 translate([40,0,0])
-dacModule();
+    dacModule();
+
+charger();
+
+dc2dc();

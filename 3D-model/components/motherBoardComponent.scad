@@ -1,7 +1,6 @@
 include <../configurations/global.scad>
 
 use <./../pieces/subpieces/breadboard.scad>
-use <./../pieces/bolt-join-mother-board-piece.scad>
 
 use <./../libraries/electronics.scad>
 use <./../libraries/commons.scad>
@@ -17,6 +16,11 @@ module esp32(z_size = 16) {
 
 module dc2dc(z_size = 16) {
     genericModule(z_size = z_size, x_points = 15, y_points = 6, color = "RoyalBlue");
+}
+
+module charger(z_size = 16) {
+    color("Green")
+    cube([28.88, 17.55, z_size], center = true);
 }
 
 /**
