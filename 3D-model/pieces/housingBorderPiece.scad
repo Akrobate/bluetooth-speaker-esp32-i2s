@@ -5,6 +5,7 @@ use <../enveloppes/onOffButtonThrowEnveloppe.scad>
 use <../enveloppes/usbConnectorThrowEnveloppe.scad>
 
 use <./subpieces/housingBorderSubpiece.scad>
+use <./subpieces/roundedPaneSubpiece.scad>
 
 
 /**
@@ -40,47 +41,56 @@ module housingBorderPiece(
 
     local_z_size = z_size - case_external_panes_thickness * 2;
 
-    difference() {
-        housingBorderSubpiece(
-            x_size = x_size,
-            y_size = y_size,
-            z_size = local_z_size,
-            round_edges_radius = round_edges_radius,
-            border_thickness = border_thickness,
-            insert_throw_diameter = insert_throw_diameter,
-            insert_throw_length = insert_throw_length,
-            insert_holder_diameter = 10,
-            facade_throws_margin = facade_throws_margin
-        );
+    union() {
 
-        // CHARGER CONNECTOR
-        translate([
-            chargerConnector_position_coords.x,
-            chargerConnector_position_coords.y,
-            chargerConnector_position_coords.z - case_external_panes_thickness
-        ])
-            rotate([0, -90, 0])
-                usbConnectorThrowEnveloppe();
+        difference() {
+            roundedPaneSubpiece([x_size, y_size, 1], round_edges_radius, round_edges_radius);
+            // Inserts throw
+            // speakers throws
+            
+        }
 
-        // Button
-        translate([
-            onOffButton_position_coords.x,
-            onOffButton_position_coords.y,
-            onOffButton_position_coords.z - case_external_panes_thickness
-        ])
-            rotate([-90,0,0])
-                onOffButtonThrowEnveloppe();
+        difference() {
+            housingBorderSubpiece(
+                x_size = x_size,
+                y_size = y_size,
+                z_size = local_z_size,
+                round_edges_radius = round_edges_radius,
+                border_thickness = border_thickness,
+                insert_throw_diameter = insert_throw_diameter,
+                insert_throw_length = insert_throw_length,
+                insert_holder_diameter = 10,
+                facade_throws_margin = facade_throws_margin
+            );
+
+            // CHARGER CONNECTOR
+            translate([
+                chargerConnector_position_coords.x,
+                chargerConnector_position_coords.y,
+                chargerConnector_position_coords.z - case_external_panes_thickness
+            ])
+                rotate([0, -90, 0])
+                    usbConnectorThrowEnveloppe();
+
+            // Button
+            translate([
+                onOffButton_position_coords.x,
+                onOffButton_position_coords.y,
+                onOffButton_position_coords.z - case_external_panes_thickness
+            ])
+                rotate([-90,0,0])
+                    onOffButtonThrowEnveloppe();
 
 
-        // Battery throw
-//        color("Green")
-//            translate([Battery_x_position + Battery_x_size / 2, nut_encaps_depth, local_z_size / 2])
-//                rotate([90, 0, 0])
-//                    nutEncapsEnveloppe(border_thickness * 4);
+            // Battery throw
+    //        color("Green")
+    //            translate([Battery_x_position + Battery_x_size / 2, nut_encaps_depth, local_z_size / 2])
+    //                rotate([90, 0, 0])
+    //                    nutEncapsEnveloppe(border_thickness * 4);
 
-
-                
+        }
     }
+                    
 }
 
 

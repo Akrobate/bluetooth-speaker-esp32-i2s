@@ -36,12 +36,9 @@ translate(chargerConnector_position_coords)
     rotate([0, -90, 0])
         usbConnector();
 
-
 translate(onOffButton_position_coords)
     rotate([-90,0,0])
         onOffButton();
-
-
 
 // Electronic parts
 
