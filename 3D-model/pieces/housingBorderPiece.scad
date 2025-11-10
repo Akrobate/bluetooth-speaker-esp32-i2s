@@ -1,5 +1,6 @@
 include <../configurations/global.scad>;
 include <../libraries/commons.scad>;
+include <../assets/speaker40mm/configurations.scad>;
 
 use <../enveloppes/onOffButtonThrowEnveloppe.scad>
 use <../enveloppes/usbConnectorThrowEnveloppe.scad>
@@ -46,8 +47,10 @@ module housingBorderPiece(
         difference() {
             roundedPaneSubpiece([x_size, y_size, 1], round_edges_radius, round_edges_radius);
             // Inserts throw
+            centeredFourPaneThrows([x_size, y_size, 1], facade_throws_margin, insert_throw_diameter, $fn = 100);
             // speakers throws
             
+
         }
 
         difference() {
