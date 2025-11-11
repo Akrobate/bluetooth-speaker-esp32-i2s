@@ -37,6 +37,11 @@ speaker_2_x_y_coords = [
     case_external_y_size / 2
 ];
 
+speakers_x_y_coords = [
+    speaker_1_x_y_coords,
+    speaker_2_x_y_coords
+];
+
 
 // facade corners
 facade_fn = 100;

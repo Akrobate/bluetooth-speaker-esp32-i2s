@@ -13,14 +13,9 @@ use <pieces/housingBorderPiece.scad>
 use <pieces/facadeFrontPiece.scad>
 
 
-translate([0, 0, case_external_z_size - case_external_panes_thickness]) {
-    translate(speaker_1_x_y_coords)
+for(speaker_x_y_coords = speakers_x_y_coords)
+    translate([speaker_x_y_coords.x, speaker_x_y_coords.y, case_external_z_size - case_external_panes_thickness])
         speaker40mm();
-
-    translate(speaker_2_x_y_coords)
-        speaker40mm();
-}
-
 
 translate([
     case_external_x_size / 2,
@@ -42,11 +37,11 @@ translate(onOffButton_position_coords)
 
 // Electronic parts
 
-dacModule();
-
-translate([40,0,0])
+translate([0,0,-30])
     dacModule();
 
-charger();
+translate([0,0,-60])
+    charger();
 
-dc2dc();
+translate([0,0,-90])
+    dc2dc();
