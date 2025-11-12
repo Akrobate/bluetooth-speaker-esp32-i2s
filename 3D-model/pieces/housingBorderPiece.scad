@@ -34,7 +34,8 @@ module housingBorderPiece(
     usb_connector_throw_fn = usb_connector_throw_fn,
     Battery_x_position = Battery_x_position,
     Battery_x_size = Battery_x_size,
-    throw_m3_diameter = throw_m3_diameter
+    throw_m3_diameter = throw_m3_diameter,
+    speaker_asset_main_diameter = speaker_asset_main_diameter,
 ) {
 
     epsilon = 0.1;
@@ -49,7 +50,16 @@ module housingBorderPiece(
 
         translate([0, 0, z_size - facade_speaker_holder_z_size - (case_external_panes_thickness * 2)])
             difference() {
-                roundedPaneSubpiece([x_size, y_size, facade_speaker_holder_z_size], round_edges_radius, round_edges_radius);
+
+                union() {
+                    roundedPaneSubpiece([x_size, y_size, facade_speaker_holder_z_size], round_edges_radius, round_edges_radius);
+                    // Holding diameter
+                    holding_speaker_diameter = speaker_asset_main_diameter + 4;
+                    for (speaker_x_y_coords = speakers_x_y_coords)
+                        translate(speaker_x_y_coords)
+                            cylinder(d = holding_speaker_diameter, h = facade_speaker_holder_z_size * 3, center = true, $fn = 100);
+                }
+
                 // Inserts throw
                 centeredFourPaneThrows([x_size, y_size, 1], facade_throws_margin, insert_throw_diameter, $fn = 100);
                 
@@ -57,6 +67,8 @@ module housingBorderPiece(
                 for (speaker_x_y_coords = speakers_x_y_coords)
                     translate(speaker_x_y_coords)
                         cylinder(d = speaker_asset_main_diameter, h = facade_speaker_holder_z_size * 3, center = true, $fn = 100);
+
+
             }
 
         difference() {
