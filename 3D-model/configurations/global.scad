@@ -23,6 +23,7 @@ housing_facades_throws_diameter = wood_throw_m3_diameter;
 facade_front_round_edges_radius = 5;
 facade_throws_margin = 5;
 
+facade_speaker_holder_z_size = 1;
 
 speaker_border_offset = 30; // 25
 

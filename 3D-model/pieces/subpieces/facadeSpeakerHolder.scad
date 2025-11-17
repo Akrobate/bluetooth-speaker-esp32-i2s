@@ -1,14 +1,17 @@
 
+include <../../configurations/global.scad>;
+include <../../assets/speaker40mm/configurations.scad>;
+
 use <./roundedPaneSubpiece.scad>
 
 
 module facadeSpeakerHolder(
-    x_size = x_size,
-    z_size = z_size,
-    y_size = y_size,
+    x_size = case_external_x_size,
+    y_size = case_external_y_size,
+    z_size = case_external_z_size,
     facade_speaker_holder_z_size = facade_speaker_holder_z_size,
     case_external_panes_thickness = case_external_panes_thickness,
-    round_edges_radius = round_edges_radius,
+    round_edges_radius = facade_front_round_edges_radius,
     speaker_asset_main_diameter = speaker_asset_main_diameter,
     speakers_x_y_coords = speakers_x_y_coords,
     facade_throws_margin = facade_throws_margin,
