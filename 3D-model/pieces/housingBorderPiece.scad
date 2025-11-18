@@ -28,6 +28,7 @@ module housingBorderPiece(
     insert_throw_diameter = insert_throw_diameter,
     insert_throw_length = insert_throw_length,
     facade_throws_margin = facade_throws_margin,
+    facade_speaker_holder_z_size = facade_speaker_holder_z_size,
     onOffButton_position_coords = onOffButton_position_coords,
     chargerConnector_position_coords = chargerConnector_position_coords,
     speakers_x_y_coords = speakers_x_y_coords,
@@ -47,27 +48,10 @@ module housingBorderPiece(
 
     union() {
 
-
-        // facadeSpeakerHolder() <- for replacement
-
         /*
-        facadeSpeakerHolder(
-            x_size = x_size,
-            z_size = z_size,
-            y_size = y_size,
-            facade_speaker_holder_z_size = facade_speaker_holder_z_size,
-            case_external_panes_thickness = case_external_panes_thickness,
-            round_edges_radius = round_edges_radius,
-            speaker_asset_main_diameter = speaker_asset_main_diameter,
-            speakers_x_y_coords = speakers_x_y_coords,
-            facade_throws_margin = facade_throws_margin,
-            insert_throw_diameter = insert_throw_diameter,
-        )
+        translate([0, 0, z_size - facade_speaker_holder_z_size - (case_external_panes_thickness * 2)])
+            facadeSpeakerHolder())
         */
-
-
-
-        facade_speaker_holder_z_size = 1;
 
         translate([0, 0, z_size - facade_speaker_holder_z_size - (case_external_panes_thickness * 2)])
             difference() {
@@ -88,8 +72,6 @@ module housingBorderPiece(
                 *for (speaker_x_y_coords = speakers_x_y_coords)
                     translate(speaker_x_y_coords)
                         cylinder(d = speaker_asset_main_diameter, h = facade_speaker_holder_z_size * 3, center = true, $fn = 100);
-
-
             }
 
         *difference() {
