@@ -2,6 +2,9 @@
 include <../../configurations/global.scad>;
 include <../../assets/speaker40mm/configurations.scad>;
 
+// debug
+use <../../assets/speaker40mm/speaker40mm.scad>;
+
 use <./roundedPaneSubpiece.scad>
 
 
@@ -23,7 +26,8 @@ module facadeSpeakerHolder(
             holding_speaker_diameter = speaker_asset_main_diameter + 4;
             for (speaker_x_y_coords = speakers_x_y_coords)
                 translate(speaker_x_y_coords)
-                    cylinder(d = holding_speaker_diameter, h = facade_speaker_holder_z_size * 3, center = true, $fn = 100);
+                    translate([0,0,-facade_speaker_holder_z_size * 3])
+                        cylinder(d = holding_speaker_diameter, h = facade_speaker_holder_z_size * 3, center = false, $fn = 200);
         }
 
         // Inserts throw
@@ -35,5 +39,10 @@ module facadeSpeakerHolder(
                 cylinder(d = speaker_asset_main_diameter, h = facade_speaker_holder_z_size * 3, center = true, $fn = 100);
     }
 }
+
+for (speaker_x_y_coords = speakers_x_y_coords)
+    translate(speaker_x_y_coords)
+        translate([0,0,facade_speaker_holder_z_size])
+            speaker40mm();
 
 facadeSpeakerHolder();
