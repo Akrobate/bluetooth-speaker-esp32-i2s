@@ -20,14 +20,16 @@ module facadeSpeakerHolder(
 ) {
     difference() {
 
-        union() {
+        one_speaker_holder = 3.5;
+
+        #union() {
             roundedPaneSubpiece([x_size, y_size, facade_speaker_holder_z_size], round_edges_radius, round_edges_radius);
             // Holding diameter
             holding_speaker_diameter = speaker_asset_main_diameter + 4;
             for (speaker_x_y_coords = speakers_x_y_coords)
                 translate(speaker_x_y_coords)
-                    translate([0,0,-facade_speaker_holder_z_size * 3])
-                        cylinder(d = holding_speaker_diameter, h = facade_speaker_holder_z_size * 3, center = false, $fn = 200);
+                    translate([0, 0, facade_speaker_holder_z_size - 0.01])
+                        cylinder(d = holding_speaker_diameter, h = one_speaker_holder, center = false, $fn = 200);
         }
 
         // Inserts throw
@@ -42,7 +44,8 @@ module facadeSpeakerHolder(
 
 for (speaker_x_y_coords = speakers_x_y_coords)
     translate(speaker_x_y_coords)
-        translate([0,0,facade_speaker_holder_z_size])
+        translate([0, 0, 0])
+            rotate([180,0,0])
             speaker40mm();
 
 facadeSpeakerHolder();
