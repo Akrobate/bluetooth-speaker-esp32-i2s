@@ -18,9 +18,14 @@ module facadeSpeakerHolder(
     facade_throws_margin = facade_throws_margin,
     insert_throw_diameter = insert_throw_diameter,
 ) {
+
+    epsilon = 0.01;
+    one_speaker_holder = 3.5;
+    margin_x_y_speader_holder = 0.3;
+    margin_z_speader_holder = 0.3;      // Should add to holder
+
     difference() {
 
-        one_speaker_holder = 3.5;
 
         #union() {
             roundedPaneSubpiece([x_size, y_size, facade_speaker_holder_z_size], round_edges_radius, round_edges_radius);
@@ -32,19 +37,37 @@ module facadeSpeakerHolder(
                         cylinder(d = holding_speaker_diameter, h = one_speaker_holder, center = false, $fn = 200);
         }
 
+        // speakers throws
+        for (speaker_x_y_coords = speakers_x_y_coords)
+            translate([speaker_x_y_coords.x, speaker_x_y_coords.y, -epsilon])
+                cylinder(
+                    d = speaker_asset_main_diameter + (margin_x_y_speader_holder * 2),
+                    h = speaker_asset_base_border_z_size + epsilon,
+                    center = false,
+                    $fn = 200
+                );
+
+        // speakers throws
+        for (speaker_x_y_coords = speakers_x_y_coords)
+            translate([speaker_x_y_coords.x, speaker_x_y_coords.y, speaker_asset_base_border_z_size - epsilon])
+                cylinder(
+                    d = speaker_asset_base_border_diameter + (margin_x_y_speader_holder * 2),
+                    h = one_speaker_holder,
+                    center = false,
+                    $fn = 100
+                );
+
+
         // Inserts throw
         centeredFourPaneThrows([x_size, y_size, 1], facade_throws_margin, insert_throw_diameter, $fn = 100);
-        
-        // speakers throws
-        *for (speaker_x_y_coords = speakers_x_y_coords)
-            translate(speaker_x_y_coords)
-                cylinder(d = speaker_asset_main_diameter, h = facade_speaker_holder_z_size * 3, center = true, $fn = 100);
+       
     }
+
 }
 
 for (speaker_x_y_coords = speakers_x_y_coords)
     translate(speaker_x_y_coords)
-        translate([0, 0, 0])
+        translate([0, 0, -0.01])
             rotate([180,0,0])
             speaker40mm();
 
