@@ -11,12 +11,22 @@ Toggle * button_volume_up;
 Toggle * button_volume_down;
 
 I2SStream i2s;
-BluetoothA2DPSink a2dp_sink(i2s);
+BluetoothA2DPSink * a2dp_sink = nullptr;
 
 
 void updateButtons();
 
 void setup() {
+
+    auto config = i2s.defaultConfig(TX_MODE);
+    config.pin_bck = PIN_I2S_BCK;
+    config.pin_ws = PIN_I2S_WS;
+    config.pin_data = PIN_I2S_DATA;
+
+    i2s.begin(config);
+
+    a2dp_sink = new BluetoothA2DPSink(i2s);
+
     pinMode(PIN_BUTTON_PLAY_PAUSE, INPUT_PULLUP);
     pinMode(PIN_BUTTON_NEXT, INPUT_PULLUP);
     pinMode(PIN_BUTTON_PREVIOUX, INPUT_PULLUP);
@@ -29,7 +39,7 @@ void setup() {
     button_volume_up = new Toggle(PIN_VOLUME_UP);
     button_volume_down = new Toggle(PIN_VOLUME_DOWN);
 
-    a2dp_sink.start(BLUETOOTH_NAME);
+    a2dp_sink->start(BLUETOOTH_NAME);
 }
 
 void loop() {
