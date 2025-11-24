@@ -42,7 +42,7 @@ module facadeSpeakerHolder(
             translate([speaker_x_y_coords.x, speaker_x_y_coords.y, -epsilon])
                 cylinder(
                     d = speaker_asset_main_diameter + (margin_x_y_speader_holder * 2),
-                    h = speaker_asset_base_border_z_size + epsilon,
+                    h = speaker_asset_base_border_z_size + epsilon + margin_z_speader_holder,
                     center = false,
                     $fn = 200
                 );
@@ -63,9 +63,11 @@ module facadeSpeakerHolder(
        
     }
 
+
+
 }
 
-for (speaker_x_y_coords = speakers_x_y_coords)
+*for (speaker_x_y_coords = speakers_x_y_coords)
     translate(speaker_x_y_coords)
         translate([0, 0, -0.01])
             rotate([180,0,0])
