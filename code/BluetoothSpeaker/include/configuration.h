@@ -11,5 +11,5 @@
 #define PIN_VOLUME_DOWN 27
 
 #define PIN_I2S_BCK 14
-#define PIN_I2S_WS 15
-#define PIN_I2S_DATA 22
+#define PIN_I2S_WS 39
+#define PIN_I2S_DATA 36

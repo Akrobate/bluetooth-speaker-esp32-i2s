@@ -53,5 +53,6 @@ void updateButtons() {
     button_previous->poll();
     button_volume_up->poll();
     button_volume_down->poll();
+    
 }
 
