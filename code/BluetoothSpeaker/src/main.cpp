@@ -4,6 +4,8 @@
 #include <BluetoothA2DPSink.h>
 #include <configuration.h>
 
+#define VOLUME_MAX 255
+
 Toggle * button_play_pause;
 Toggle * button_next;
 Toggle * button_previous;
@@ -12,6 +14,9 @@ Toggle * button_volume_down;
 
 I2SStream i2s;
 BluetoothA2DPSink * a2dp_sink = nullptr;
+
+int volume = 0;
+
 
 
 void updateButtons();
@@ -40,10 +45,29 @@ void setup() {
     button_volume_down = new Toggle(PIN_VOLUME_DOWN);
 
     a2dp_sink->start(BLUETOOTH_NAME);
+
 }
 
 void loop() {
     updateButtons();
+
+	if (button_volume_up->onPress()) {
+		volume = a2dp_sink->get_volume();
+        if (volume < VOLUME_MAX) {
+            volume += 1;
+            a2dp_sink->set_volume(volume);
+        }
+	}
+
+
+	if (button_volume_down->onPress()) {
+		volume = a2dp_sink->get_volume();
+        if (volume > 0) {
+            volume -= 1;
+            a2dp_sink->set_volume(volume);
+        }
+	}
+
 }
 
 
@@ -52,7 +76,6 @@ void updateButtons() {
     button_next->poll();
     button_previous->poll();
     button_volume_up->poll();
-    button_volume_down->poll();
-    
+    button_volume_down->poll();    
 }
 
