@@ -17,7 +17,7 @@ BluetoothA2DPSink * a2dp_sink = nullptr;
 
 int volume = 0;
 
-
+bool is_playing = false;
 
 void updateButtons();
 
@@ -68,6 +68,25 @@ void loop() {
         }
 	}
 
+
+    if (button_play_pause->onPress()) {
+        if (is_playing) {
+            a2dp_sink->pause();
+        } else {
+            a2dp_sink->play();
+        }
+        is_playing = !is_playing;
+    }
+
+
+    if (button_previous->onPress()) {
+        a2dp_sink->previous();
+    }
+
+    
+    if (button_next->onPress()) {
+        a2dp_sink->next();
+    }
 }
 
 
