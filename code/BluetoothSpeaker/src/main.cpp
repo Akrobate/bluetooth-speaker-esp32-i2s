@@ -16,12 +16,15 @@ I2SStream i2s;
 BluetoothA2DPSink * a2dp_sink = nullptr;
 
 int volume = 0;
-
 bool is_playing = false;
+unsigned long last_time = 0;
+
 
 void updateButtons();
 
 void setup() {
+
+    Serial.begin(115200);
 
     auto config = i2s.defaultConfig(TX_MODE);
     config.pin_bck = PIN_I2S_BCK;
@@ -44,8 +47,11 @@ void setup() {
     button_volume_up = new Toggle(PIN_VOLUME_UP);
     button_volume_down = new Toggle(PIN_VOLUME_DOWN);
 
+    Serial.println("a2dp_sink: Starting");
     a2dp_sink->start(BLUETOOTH_NAME);
+    Serial.println("a2dp_sink: OK");
 
+    last_time = millis();
 }
 
 void loop() {
@@ -86,6 +92,11 @@ void loop() {
     
     if (button_next->onPress()) {
         a2dp_sink->next();
+    }
+
+    if (millis() - last_time > 1000) {
+        last_time = millis();
+        Serial.println("Main loop");
     }
 }
 
