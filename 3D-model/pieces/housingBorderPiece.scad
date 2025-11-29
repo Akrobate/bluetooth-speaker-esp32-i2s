@@ -89,6 +89,18 @@ module housingBorderPiece(
                 rotate([-90,0,0])
                     onOffButtonThrowEnveloppe();
 
+            // Button
+            for(control_buttons_position_coords = control_buttons_position_coords_list)
+                translate([
+                    control_buttons_position_coords.x,
+                    control_buttons_position_coords.y,
+                    control_buttons_position_coords.z - case_external_panes_thickness
+                ])
+                    rotate([-90,0,0])
+                        onOffButtonThrowEnveloppe();
+
+
+
 
             // Battery throw
     //        color("Green")

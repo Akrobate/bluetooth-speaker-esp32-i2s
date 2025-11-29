@@ -61,6 +61,14 @@ breadboard_z_size = 1.5;
 
 
 onOffButton_position_coords = [19, case_external_y_size, case_external_z_size / 2];
+
+control_buttons_position_coords_list = [
+    [19 * 2, case_external_y_size, case_external_z_size / 2],
+    [19 * 3, case_external_y_size, case_external_z_size / 2],
+    [19 * 4, case_external_y_size, case_external_z_size / 2]
+];
+
+
 chargerConnector_position_coords = [0, 18, case_external_z_size / 2];
 
 onOffButtonThrowEnveloppe_fn = 250;

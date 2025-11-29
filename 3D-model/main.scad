@@ -35,6 +35,13 @@ translate(onOffButton_position_coords)
     rotate([-90,0,0])
         onOffButton();
 
+// Button
+for(control_buttons_position_coords = control_buttons_position_coords_list)
+    translate(control_buttons_position_coords)
+        rotate([-90,0,0])
+            onOffButton();
+
+
 // Electronic parts
 
 translate([0,0,-30])
