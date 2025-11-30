@@ -14,7 +14,7 @@ mil = 2.54;
 // external size
 case_external_x_size = 110; // 105
 case_external_y_size = 55; // 66
-case_external_z_size = 55;
+case_external_z_size = 60;
 case_external_panes_thickness = 4.8;
 
 

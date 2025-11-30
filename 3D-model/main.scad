@@ -13,42 +13,49 @@ use <pieces/housingBorderPiece.scad>
 use <pieces/facadeFrontPiece.scad>
 
 
-for(speaker_x_y_coords = speakers_x_y_coords)
-    translate([speaker_x_y_coords.x, speaker_x_y_coords.y, case_external_z_size - case_external_panes_thickness])
-        speaker40mm();
 
-translate([
-    case_external_x_size / 2,
-    housingBorderPiece_border_thickness,
-    case_external_panes_thickness
-])
-    translate([- Battery_x_size / 2, 0, 0])
-        battery(center = false);
+module main() {
 
-housingComponent();
+    for(speaker_x_y_coords = speakers_x_y_coords)
+        translate([speaker_x_y_coords.x, speaker_x_y_coords.y, case_external_z_size - case_external_panes_thickness])
+            speaker40mm();
 
-translate(chargerConnector_position_coords)
-    rotate([0, -90, 0])
-        usbConnector();
+    translate([
+        case_external_x_size / 2,
+        housingBorderPiece_border_thickness,
+        case_external_panes_thickness
+    ])
+        translate([- Battery_x_size / 2, 0, 0])
+            battery(center = false);
 
-translate(onOffButton_position_coords)
-    rotate([-90,0,0])
-        onOffButton();
+    housingComponent();
 
-// Button
-for(control_buttons_position_coords = control_buttons_position_coords_list)
-    translate(control_buttons_position_coords)
+    translate(chargerConnector_position_coords)
+        rotate([0, -90, 0])
+            usbConnector();
+
+    translate(onOffButton_position_coords)
         rotate([-90,0,0])
             onOffButton();
 
+    // Button
+    for(control_buttons_position_coords = control_buttons_position_coords_list)
+        translate(control_buttons_position_coords)
+            rotate([-90,0,0])
+                onOffButton();
 
-// Electronic parts
 
-translate([0,0,-30])
-    dacModule();
+    // Electronic parts
 
-translate([0,0,-60])
-    charger();
+    translate([0,0,-30])
+        dacModule();
 
-translate([0,0,-90])
-    dc2dc();
+    translate([0,0,-60])
+        charger();
+
+    translate([0,0,-90])
+        dc2dc();
+}
+
+rotate([90,0,0])
+    main();
