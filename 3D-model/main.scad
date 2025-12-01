@@ -5,6 +5,8 @@ use <assets/battery/battery.scad>
 use <assets/speaker40mm/speaker40mm.scad>
 use <assets/usb-connector/usbConnector.scad>
 use <assets/on-off-button/onOffButton.scad>
+use <assets/max98357/max98357.scad>
+use <assets/esp32Wroom/esp32Wroom.scad>
 
 use <components/housingComponent.scad>
 use <components/motherBoardComponent.scad>
@@ -46,15 +48,19 @@ module main() {
 
 
     // Electronic parts
-
     translate([0,0,-30])
-        dacModule();
+        max98357();
 
     translate([0,0,-60])
         charger();
 
     translate([0,0,-90])
         dc2dc();
+
+    translate([0,0, 25])
+        rotate([90,0,0])
+        esp32Wroom();
+
 }
 
 rotate([90,0,0])
