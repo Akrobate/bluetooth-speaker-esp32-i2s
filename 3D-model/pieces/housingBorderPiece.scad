@@ -59,7 +59,7 @@ module housingBorderPiece(
                 facadeSpeakerHolder();
 
         difference() {
-            housingBorderSubpiece(
+            #housingBorderSubpiece(
                 x_size = x_size,
                 y_size = y_size,
                 z_size = local_z_size,

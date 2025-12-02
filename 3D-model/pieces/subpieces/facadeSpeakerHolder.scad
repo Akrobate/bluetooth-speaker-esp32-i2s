@@ -27,7 +27,7 @@ module facadeSpeakerHolder(
     difference() {
 
 
-        #union() {
+        union() {
             roundedPaneSubpiece([x_size, y_size, facade_speaker_holder_z_size], round_edges_radius, round_edges_radius);
             // Holding diameter
             holding_speaker_diameter = speaker_asset_main_diameter + 4;
