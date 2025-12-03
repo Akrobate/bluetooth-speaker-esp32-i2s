@@ -1,7 +1,9 @@
 include <../configurations/global.scad>
 
 use <../pieces/facadeBackPiece.scad>
+
 use <../assets/battery/battery.scad>
+use <../assets/on-off-button/onOffButton.scad>
 
 module backFacadeComponent() {
 
@@ -14,6 +16,10 @@ module backFacadeComponent() {
     ])
         translate([- Battery_x_size / 2, 0, 0])
             battery(center = false);
+
+    translate([15, 30, 0])
+        rotate([180, 0, 0])
+            onOffButton();
 }
 
 

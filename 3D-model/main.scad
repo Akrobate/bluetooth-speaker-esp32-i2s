@@ -1,6 +1,5 @@
 include <configurations/global.scad>
 
-include <assets/battery/configurations.scad>
 use <assets/speaker40mm/speaker40mm.scad>
 use <assets/usb-connector/usbConnector.scad>
 use <assets/on-off-button/onOffButton.scad>
@@ -9,10 +8,10 @@ use <assets/esp32Wroom/esp32Wroom.scad>
 
 use <components/housingComponent.scad>
 use <components/motherBoardComponent.scad>
+use <components/backFacadeComponent.scad>
 
 use <pieces/housingBorderPiece.scad>
 use <pieces/facadeFrontPiece.scad>
-
 
 module main() {
 
@@ -23,6 +22,10 @@ module main() {
 
     rotate([90,0,0])
         housingComponent();
+
+    rotate([90,0,0])
+        backFacadeComponent();
+
 
     rotate([90,0,0])
         translate(chargerConnector_position_coords)
