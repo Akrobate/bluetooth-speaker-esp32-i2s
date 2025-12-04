@@ -4,6 +4,7 @@ use <../pieces/facadeBackPiece.scad>
 
 use <../assets/battery/battery.scad>
 use <../assets/on-off-button/onOffButton.scad>
+use <../assets/usb-connector/usbConnector.scad>
 
 module backFacadeComponent() {
 
@@ -17,9 +18,13 @@ module backFacadeComponent() {
         translate([- Battery_x_size / 2, 0, 0])
             battery(center = false);
 
-    translate([15, 30, 0])
+    translate(onOffButton_position_coords)
         rotate([180, 0, 0])
             onOffButton();
+
+    translate(chargerConnector_position_coords)
+        rotate([180, 0, 0])
+            usbConnector();
 }
 
 

@@ -29,8 +29,6 @@ module housingBorderPiece(
     insert_throw_length = insert_throw_length,
     facade_throws_margin = facade_throws_margin,
     facade_speaker_holder_z_size = facade_speaker_holder_z_size,
-    onOffButton_position_coords = onOffButton_position_coords,
-    chargerConnector_position_coords = chargerConnector_position_coords,
     speakers_x_y_coords = speakers_x_y_coords,
     usb_connector_throw_diameter = usb_connector_throw_diameter,
     usb_connector_throw_fn = usb_connector_throw_fn,
@@ -48,7 +46,7 @@ module housingBorderPiece(
 
     union() {
 
-        translate(
+        *translate(
             [
                 0,
                 y_size,
@@ -59,7 +57,7 @@ module housingBorderPiece(
                 facadeSpeakerHolder();
 
         difference() {
-            #housingBorderSubpiece(
+            housingBorderSubpiece(
                 x_size = x_size,
                 y_size = y_size,
                 z_size = local_z_size,
@@ -70,24 +68,6 @@ module housingBorderPiece(
                 insert_holder_diameter = 10,
                 facade_throws_margin = facade_throws_margin
             );
-
-            // CHARGER CONNECTOR
-            translate([
-                chargerConnector_position_coords.x,
-                chargerConnector_position_coords.y,
-                chargerConnector_position_coords.z - case_external_panes_thickness
-            ])
-                rotate([0, -90, 0])
-                    usbConnectorThrowEnveloppe();
-
-            // Button
-            translate([
-                onOffButton_position_coords.x,
-                onOffButton_position_coords.y,
-                onOffButton_position_coords.z - case_external_panes_thickness
-            ])
-                rotate([-90,0,0])
-                    onOffButtonThrowEnveloppe();
 
             // Button
             for(control_buttons_position_coords = control_buttons_position_coords_list)
