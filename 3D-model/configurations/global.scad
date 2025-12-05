@@ -75,12 +75,7 @@ boltEnveloppe_fn = 100;
 // Housing border
 housingBorderPiece_border_thickness = 4;
 
-// Battery
-Battery_x_size = 75.8;
-Battery_y_size = 21.4;
-Battery_z_size = 21.4;
-
-Battery_x_position = case_external_x_size / 2 - Battery_x_size / 2 + 2.5;
+Battery_coords_position = [23, 4];
 
 // Usb Connector
 usbConnectorThrowEnveloppe_margin = 0.25;

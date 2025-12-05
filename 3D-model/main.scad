@@ -5,6 +5,7 @@ use <assets/usb-connector/usbConnector.scad>
 use <assets/on-off-button/onOffButton.scad>
 use <assets/max98357/max98357.scad>
 use <assets/esp32Wroom/esp32Wroom.scad>
+use <assets/battery/battery.scad>
 
 use <components/housingComponent.scad>
 use <components/motherBoardComponent.scad>
@@ -49,9 +50,8 @@ module main() {
     translate([0,0,-90])
         dc2dc();
 
-    translate([0,0, 25])
-        rotate([90,0,0])
-            esp32Wroom();
+    translate([10, 10, 0])
+        esp32Wroom();
 
 }
 

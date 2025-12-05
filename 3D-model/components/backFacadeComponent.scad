@@ -11,12 +11,11 @@ module backFacadeComponent() {
     facadeBackPiece();
 
     translate([
-        case_external_x_size / 2,
-        housingBorderPiece_border_thickness,
+        Battery_coords_position.x,
+        Battery_coords_position.y,
         case_external_panes_thickness
     ])
-        translate([- Battery_x_size / 2, 0, 0])
-            battery(center = false);
+        battery(center = false);
 
     translate(onOffButton_position_coords)
         rotate([180, 0, 0])

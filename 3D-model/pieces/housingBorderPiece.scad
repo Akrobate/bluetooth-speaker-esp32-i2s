@@ -32,8 +32,6 @@ module housingBorderPiece(
     speakers_x_y_coords = speakers_x_y_coords,
     usb_connector_throw_diameter = usb_connector_throw_diameter,
     usb_connector_throw_fn = usb_connector_throw_fn,
-    Battery_x_position = Battery_x_position,
-    Battery_x_size = Battery_x_size,
     throw_m3_diameter = throw_m3_diameter,
     speaker_asset_main_diameter = speaker_asset_main_diameter,
 ) {
@@ -78,15 +76,6 @@ module housingBorderPiece(
                 ])
                     rotate([-90,0,0])
                         onOffButtonThrowEnveloppe();
-
-
-
-
-            // Battery throw
-    //        color("Green")
-    //            translate([Battery_x_position + Battery_x_size / 2, nut_encaps_depth, local_z_size / 2])
-    //                rotate([90, 0, 0])
-    //                    nutEncapsEnveloppe(border_thickness * 4);
 
         }
     }
