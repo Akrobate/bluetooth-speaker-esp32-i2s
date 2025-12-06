@@ -27,12 +27,6 @@ module main() {
     rotate([90,0,0])
         backFacadeComponent();
 
-    // To remove
-    *rotate([90,0,0])
-        translate(onOffButton_position_coords)
-            rotate([-90,0,0])
-                onOffButton();
-
     // Button
     rotate([90,0,0])
         for(control_buttons_position_coords = control_buttons_position_coords_list)
@@ -41,8 +35,14 @@ module main() {
                     onOffButton();
 
     // Electronic parts
-    translate([0,0,-30])
-        max98357();
+    translate([105, -50, 30])
+        rotate([0,-90,0])
+            max98357();
+    
+    translate([6, -50, 30])
+        rotate([0,90,0])
+            max98357();
+
 
     translate([0,0,-60])
         charger();
@@ -50,7 +50,7 @@ module main() {
     translate([0,0,-90])
         dc2dc();
 
-    translate([10, 10, 0])
+    translate([30, -56, 6])
         esp32Wroom();
 
 }
