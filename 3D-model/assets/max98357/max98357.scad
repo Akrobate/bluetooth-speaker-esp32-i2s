@@ -28,8 +28,20 @@ module max98357(display_pins = true) {
             translate([max98357_speaker_pads_coords.x, max98357_speaker_pads_coords.y, max98357_board_size.z])
                 he14padn(1, 1);
     }
-
 }
 
 
-max98357(false);
+module centerOnFixationThrow() {
+    translate(-max98357_fixing_throws_offset_list[0])
+        children();
+}
+
+
+module centerModule() {
+    translate([-max98357_board_size.x / 2, -max98357_board_size.y / 2])
+        children();
+}
+
+
+centerModule()
+    max98357(false);
