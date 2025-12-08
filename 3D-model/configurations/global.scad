@@ -81,3 +81,6 @@ Battery_coords_position = [23, 4];
 usbConnectorThrowEnveloppe_margin = 0.25;
 usbConnectorThrowEnveloppe_length = 20;
 usbConnectorThrowEnveloppe_fn = 100;
+
+
+max98357_coords = [20, 30];

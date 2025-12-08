@@ -34,6 +34,8 @@ module housingBorderPiece(
     usb_connector_throw_fn = usb_connector_throw_fn,
     throw_m3_diameter = throw_m3_diameter,
     speaker_asset_main_diameter = speaker_asset_main_diameter,
+
+    max98357_coords = max98357_coords
 ) {
 
     epsilon = 0.1;
@@ -41,6 +43,18 @@ module housingBorderPiece(
     nut_encaps_depth = 2.6; // 2.8 is the depth of the battery nut encapsulation
 
     local_z_size = z_size - case_external_panes_thickness * 2;
+
+    rotate([0, -90, 0])
+        translate([max98357_coords.x, max98357_coords.y, -border_thickness]) {
+            cylinder(d = 10, h = 10, center = true);
+        }
+
+    rotate([0, -90, 0])
+        translate([max98357_coords.x, max98357_coords.y, -x_size + border_thickness]) {
+            cylinder(d = 10, h = 10, center = true);
+        }
+
+
 
     union() {
 
