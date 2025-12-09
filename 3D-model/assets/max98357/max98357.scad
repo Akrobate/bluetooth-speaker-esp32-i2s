@@ -31,17 +31,17 @@ module max98357(display_pins = true) {
 }
 
 
-module centerOnFixationThrow() {
+module max98357CenterOnFixationThrow() {
     translate(-max98357_fixing_throws_offset_list[0])
         children();
 }
 
 
-module centerModule() {
+module max98357CenterModule() {
     translate([-max98357_board_size.x / 2, -max98357_board_size.y / 2])
         children();
 }
 
 
-centerModule()
+max98357CenterModule()
     max98357(false);

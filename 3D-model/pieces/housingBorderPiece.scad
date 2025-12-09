@@ -1,6 +1,7 @@
 include <../configurations/global.scad>;
 include <../libraries/commons.scad>;
 include <../assets/speaker40mm/configurations.scad>;
+include <../assets/max98357/configurations.scad>;
 
 use <../enveloppes/onOffButtonThrowEnveloppe.scad>
 use <../enveloppes/usbConnectorThrowEnveloppe.scad>
@@ -35,7 +36,7 @@ module housingBorderPiece(
     throw_m3_diameter = throw_m3_diameter,
     speaker_asset_main_diameter = speaker_asset_main_diameter,
 
-    max98357_coords = max98357_coords
+    max98357_center_coords = max98357_center_coords
 ) {
 
     epsilon = 0.1;
@@ -45,12 +46,12 @@ module housingBorderPiece(
     local_z_size = z_size - case_external_panes_thickness * 2;
 
     rotate([0, -90, 0])
-        translate([max98357_coords.x, max98357_coords.y, -border_thickness]) {
+        translate([max98357_center_coords.x, max98357_center_coords.y, -border_thickness]) {
             cylinder(d = 10, h = 10, center = true);
         }
 
     rotate([0, -90, 0])
-        translate([max98357_coords.x, max98357_coords.y, -x_size + border_thickness]) {
+        translate([max98357_center_coords.x, max98357_center_coords.y, -x_size + border_thickness]) {
             cylinder(d = 10, h = 10, center = true);
         }
 

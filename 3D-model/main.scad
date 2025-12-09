@@ -21,10 +21,10 @@ module main() {
             translate([speaker_x_y_coords.x, speaker_x_y_coords.y, case_external_z_size - case_external_panes_thickness])
                 speaker40mm();
 
-    rotate([90,0,0])
+    #rotate([90,0,0])
         housingComponent();
 
-    rotate([90,0,0])
+    *rotate([90,0,0])
         backFacadeComponent();
 
     // Button
@@ -35,13 +35,23 @@ module main() {
                     onOffButton();
 
     // Electronic parts
-    translate([105, -50, 30])
-        rotate([0,-90,0])
-            max98357();
-    
-    translate([6, -50, 30])
-        rotate([0,90,0])
-            max98357();
+    translate([housingBorderPiece_border_thickness, -case_external_panes_thickness, 0])
+        rotate([90, 0, -90])
+            translate([max98357_center_coords.x, max98357_center_coords.y])
+                rotate([180, 0, 0])
+                    max98357CenterModule()   
+                        max98357();
+
+    translate([case_external_x_size - housingBorderPiece_border_thickness, -case_external_panes_thickness, 0])
+        rotate([90, 0, -90])
+            translate([max98357_center_coords.x, max98357_center_coords.y])
+                rotate([180, 180, 0])
+                    max98357CenterModule()   
+                        max98357();
+
+
+
+
 
 
     translate([0,0,-60])

@@ -83,4 +83,4 @@ usbConnectorThrowEnveloppe_length = 20;
 usbConnectorThrowEnveloppe_fn = 100;
 
 
-max98357_coords = [20, 30];
+max98357_center_coords = [20, 30];
