@@ -1,3 +1,5 @@
+include <configurations.scad>
+
 /**
  * he14male1
  * @name he14male1
@@ -5,24 +7,31 @@
  * @type asset
  * @parent 
  */
-module he14male1(_connector_fn = 4) {
+module he14male1() {
 
+    _connector_fn = 4;
     mil = 2.54;
-
-    connector_z_size = 11.2;
-    connector_diametter = 0.6;
 
     x_size = mil;
     y_size = mil;
 
-    cylinder_radius = mil;
-    translate([0, 0, -mil])
+    translate([0, 0, -he14_isolation_z_size])
         color("Grey")
-        cylinder(d = mil, h = mil, center = false, $fn = 8);
+        cylinder(
+            d = he14_isolation_diameter,
+            h = he14_isolation_z_size,
+            center = false,
+            $fn = 8
+        );
 
     translate([0, 0, -mil - 5.85])
         color("Yellow")
-            cylinder(d = connector_diametter, h = connector_z_size, center = false, $fn = _connector_fn);  
+            cylinder(
+                d = he14_connector_diametter,
+                h = he14_connector_z_size,
+                center = false,
+                $fn = _connector_fn
+            );  
 }
 
 
@@ -53,15 +62,22 @@ module he14XYLoop(x = 1, y = 1) {
  */
 module he14pad() {
     _fn = 30;
-    pad_external_diameter = 2;
-    pad_z_size = 0.1;
-    connector_throw_diametter = 0.7;
     epsilon = 0.1;
 
     difference() {
-        cylinder(d = pad_external_diameter, h = pad_z_size, center = false, $fn = _fn);
-        translate([0,0, -epsilon])
-            cylinder(d = connector_throw_diametter, h = pad_z_size + (epsilon * 2), center = false, $fn = _fn);
+        cylinder(
+            d = he14_pad_external_diameter,
+            h = he14_pad_z_size,
+            center = false,
+            $fn = _fn
+        );
+        translate([0, 0, -epsilon])
+            cylinder(
+                d = he14_connector_throw_diametter,
+                h = he14_pad_z_size + (epsilon * 2),
+                center = false,
+                $fn = _fn
+            );
     }
 }
 
@@ -90,6 +106,14 @@ module he14padn(x = 1, y = 1) {
     he14XYLoop(x, y)
         he14pad();
 }
+
+
+module he14maleAndPadn(x = 1, y = 1, board_z_size = 1) {
+    he14malen(x, y);
+    translate([0, 0, board_z_size])
+        he14padn(x, y);
+}
+
 
 he14malen(1, 10);
 
