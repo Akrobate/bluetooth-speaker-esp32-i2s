@@ -48,14 +48,23 @@ module housingBorderPiece(
     rotate([0, -90, 0])
         translate([max98357_center_coords.x, max98357_center_coords.y, -border_thickness]) {
             cylinder(d = 10, h = 10, center = true);
+
+            for (max98357_fixing_throws_offset = max98357_fixing_throws_offset_list) {
+                translate(max98357_fixing_throws_offset)
+                    cylinder(d = 2, h = 30, center = true);
+            }
+
         }
 
     rotate([0, -90, 0])
         translate([max98357_center_coords.x, max98357_center_coords.y, -x_size + border_thickness]) {
             cylinder(d = 10, h = 10, center = true);
+
+            for (max98357_fixing_throws_offset = max98357_fixing_throws_offset_list) {
+                translate(max98357_fixing_throws_offset)
+                    cylinder(d = 2, h = 30, center = true);
+            }
         }
-
-
 
     union() {
 
