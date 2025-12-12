@@ -38,14 +38,14 @@ module main() {
     translate([housingBorderPiece_border_thickness, -case_external_panes_thickness, 0])
         rotate([90, 0, -90])
             translate([max98357_center_coords.x, max98357_center_coords.y])
-                rotate([180, 0, 0])
+                rotate([180, 0, 180])
                     max98357CenterModule()   
                         max98357();
 
     translate([case_external_x_size - housingBorderPiece_border_thickness, -case_external_panes_thickness, 0])
         rotate([90, 0, -90])
             translate([max98357_center_coords.x, max98357_center_coords.y])
-                rotate([180, 180, 0])
+                rotate([180, 180, 180])
                     max98357CenterModule()   
                         max98357();
 

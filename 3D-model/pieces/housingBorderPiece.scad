@@ -1,7 +1,11 @@
 include <../configurations/global.scad>;
 include <../libraries/commons.scad>;
 include <../assets/speaker40mm/configurations.scad>;
+
+
+use <../assets/max98357/max98357.scad>;
 include <../assets/max98357/configurations.scad>;
+
 
 use <../enveloppes/onOffButtonThrowEnveloppe.scad>
 use <../enveloppes/usbConnectorThrowEnveloppe.scad>
@@ -47,23 +51,25 @@ module housingBorderPiece(
 
     rotate([0, -90, 0])
         translate([max98357_center_coords.x, max98357_center_coords.y, -border_thickness]) {
-            cylinder(d = 10, h = 10, center = true);
+            cylinder(d = 10, h = 10, center = false);
 
-            for (max98357_fixing_throws_offset = max98357_fixing_throws_offset_list) {
-                translate(max98357_fixing_throws_offset)
-                    cylinder(d = 2, h = 30, center = true);
-            }
+            max98357CenterModule()
+                for (max98357_fixing_throws_offset = max98357_fixing_throws_offset_list) {
+                    translate(max98357_fixing_throws_offset)
+                        cylinder(d = 2, h = 30, center = true);
+                }
 
         }
 
     rotate([0, -90, 0])
         translate([max98357_center_coords.x, max98357_center_coords.y, -x_size + border_thickness]) {
-            cylinder(d = 10, h = 10, center = true);
+            cylinder(d = 10, h = 10, center = false);
 
-            for (max98357_fixing_throws_offset = max98357_fixing_throws_offset_list) {
-                translate(max98357_fixing_throws_offset)
-                    cylinder(d = 2, h = 30, center = true);
-            }
+            max98357CenterModule()
+                for (max98357_fixing_throws_offset = max98357_fixing_throws_offset_list) {
+                    translate(max98357_fixing_throws_offset)
+                        cylinder(d = 2, h = 30, center = false);
+                }
         }
 
     union() {
