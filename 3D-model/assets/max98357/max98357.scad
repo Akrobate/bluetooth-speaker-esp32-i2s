@@ -1,4 +1,4 @@
-include <./configuration.scad>
+include <./configurations.scad>
 
 use <../he14/he14.scad>
 
