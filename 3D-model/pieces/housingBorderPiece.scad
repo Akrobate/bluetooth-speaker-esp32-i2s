@@ -49,29 +49,30 @@ module housingBorderPiece(
 
     local_z_size = z_size - case_external_panes_thickness * 2;
 
+    local_max_holder_z_size = 5;
+    local_max_holder_diameter = 10;
+
     rotate([0, -90, 0])
         translate([max98357_center_coords.x, max98357_center_coords.y, -border_thickness]) {
             
             rotate([0, 180, 0]) {
-                cylinder(d = 10, h = 10, center = false);
-
                 max98357CenterModule()
-                    for (max98357_fixing_throws_offset = max98357_fixing_throws_offset_list) {
-                        translate(max98357_fixing_throws_offset)
-                            cylinder(d = 2, h = 30, center = false);
-                    }
+                    hull()
+                        for (max98357_fixing_throws_offset = max98357_fixing_throws_offset_list) {
+                            translate(max98357_fixing_throws_offset)
+                                cylinder(d = local_max_holder_diameter, h = local_max_holder_z_size, center = false, $fn = 100);
+                        }
             }
         }
 
     rotate([0, -90, 0])
         translate([max98357_center_coords.x, max98357_center_coords.y, -x_size + border_thickness]) {
-            cylinder(d = 10, h = 10, center = false);
-
             max98357CenterModule()
-                for (max98357_fixing_throws_offset = max98357_fixing_throws_offset_list) {
-                    translate(max98357_fixing_throws_offset)
-                        cylinder(d = 2, h = 30, center = false);
-                }
+                hull()
+                    for (max98357_fixing_throws_offset = max98357_fixing_throws_offset_list) {
+                        translate(max98357_fixing_throws_offset)
+                            cylinder(d = local_max_holder_diameter, h = local_max_holder_z_size, center = false, $fn = 100);
+                    }
         }
 
     union() {
