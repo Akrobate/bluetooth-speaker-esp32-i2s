@@ -1,0 +1,9 @@
+{
+  "name": "housing",
+  "version": "1.0.0",
+  "description": "housing libraries helper",
+  "main": "main.scad",
+  "dependencies": {
+    "common-helpers": "^0.2.0"
+  }
+}
