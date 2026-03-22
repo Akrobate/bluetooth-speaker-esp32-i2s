@@ -10,7 +10,7 @@ include <../assets/max98357/configurations.scad>;
 use <../enveloppes/onOffButtonThrowEnveloppe.scad>
 use <../enveloppes/usbConnectorThrowEnveloppe.scad>
 
-use <./subpieces/housingBorderSubpiece.scad>
+use <../openscad_modules/housing/housingBorder.scad>
 use <./subpieces/roundedPaneSubpiece.scad>
 use <./subpieces/facadeSpeakerHolder.scad>
 
@@ -97,7 +97,7 @@ module housingBorderPiece(
                 facadeSpeakerHolder();
 
         difference() {
-            housingBorderSubpiece(
+            housingBorder(
                 x_size = x_size,
                 y_size = y_size,
                 z_size = local_z_size,
