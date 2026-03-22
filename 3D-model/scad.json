@@ -1,7 +1,10 @@
 {
-  "name": "3D-model",
-  "version": "1.0.0",
+  "name": "bluetooth-speaker-esp32-i2s",
+  "version": "0.0.1",
   "description": "",
   "author": "",
-  "repository": ""
+  "repository": "",
+  "dependencies": {
+    "housing": "https://gitlab.com/openscad-modules/housing.git#0.0.5"
+  }
 }
