@@ -1,9 +1,9 @@
 
 include <../../configurations/global.scad>;
-include <../../assets/speaker40mm/configurations.scad>;
+include <../../openscad_modules/speaker/speaker40mm/configurations.scad>;
 
 // debug
-use <../../assets/speaker40mm/speaker40mm.scad>;
+use <../../openscad_modules/speaker/speaker40mm/speaker40mm.scad>;
 
 use <./roundedPaneSubpiece.scad>
 

@@ -1,6 +1,6 @@
 include <../configurations/global.scad>;
 include <../libraries/commons.scad>;
-include <../assets/speaker40mm/configurations.scad>;
+include <../openscad_modules/speaker/speaker40mm/configurations.scad>;
 
 
 use <../assets/max98357/max98357.scad>;

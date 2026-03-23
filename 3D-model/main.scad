@@ -1,6 +1,6 @@
 include <configurations/global.scad>
 
-use <assets/speaker40mm/speaker40mm.scad>
+use <openscad_modules/speaker/speaker40mm/speaker40mm.scad>
 use <assets/usb-connector/usbConnector.scad>
 use <assets/on-off-button/onOffButton.scad>
 use <assets/max98357/max98357.scad>
