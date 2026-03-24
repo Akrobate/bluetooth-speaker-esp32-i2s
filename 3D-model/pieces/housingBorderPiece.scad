@@ -11,7 +11,6 @@ use <../enveloppes/onOffButtonThrowEnveloppe.scad>
 use <../enveloppes/usbConnectorThrowEnveloppe.scad>
 
 use <../openscad_modules/housing/housingBorder.scad>
-use <./subpieces/roundedPaneSubpiece.scad>
 use <./subpieces/facadeSpeakerHolder.scad>
 
 

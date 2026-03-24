@@ -21,10 +21,10 @@ module main() {
             translate([speaker_x_y_coords.x, speaker_x_y_coords.y, case_external_z_size - case_external_panes_thickness])
                 speaker40mm();
 
-    #rotate([90,0,0])
+    rotate([90,0,0])
         housingComponent();
 
-    *rotate([90,0,0])
+    rotate([90,0,0])
         backFacadeComponent();
 
     // Button
@@ -48,11 +48,6 @@ module main() {
                 rotate([180, 180, 180])
                     max98357CenterModule()   
                         max98357();
-
-
-
-
-
 
     translate([0,0,-60])
         charger();

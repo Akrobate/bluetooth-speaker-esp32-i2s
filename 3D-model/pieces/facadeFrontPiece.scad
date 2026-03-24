@@ -2,7 +2,9 @@ include <./../configurations/global.scad>
 use <./../libraries/commons.scad>
 use <./../libraries/electronics.scad>
 
-use <./subpieces/roundedPaneSubpiece.scad>
+use <../enveloppes/centeredFourPaneThrowsEnveloppe.scad>
+use <../openscad_modules/housing/roundedPane.scad>
+
 use <./subpieces/speakerGridSubpiece.scad>
 
 
@@ -27,7 +29,7 @@ module facadeFrontPiece(
 
     difference() {
         color("BurlyWood")
-            roundedPaneSubpiece(
+            roundedPane(
                 [x_size, y_size, z_size],
                 r1 = round_edges_radius,
                 r2 = round_edges_radius,
@@ -35,7 +37,7 @@ module facadeFrontPiece(
                 $fn = $fn
             );
 
-        centeredFourPaneThrows([x_size, y_size, z_size], throws_margin, throws_diameter, $fn = $fn);
+        centeredFourPaneThrowsEnveloppe([x_size, y_size, z_size], throws_margin, throws_diameter, $fn = $fn);
      
         for(item = [speaker_1_x_y_coords, speaker_2_x_y_coords])
             translate(item)

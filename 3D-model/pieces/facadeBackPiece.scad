@@ -1,8 +1,8 @@
-include <./../configurations/global.scad>
-use <./../libraries/commons.scad>
-use <./../libraries/electronics.scad>
-
-use <./subpieces/roundedPaneSubpiece.scad>
+include <../configurations/global.scad>
+use <../libraries/commons.scad>
+use <../libraries/electronics.scad>
+use <../enveloppes/centeredFourPaneThrowsEnveloppe.scad>
+use <../openscad_modules/housing/roundedPane.scad>
 
 
  /**
@@ -26,7 +26,7 @@ module facadeBackPiece(
 
     difference() {
         color("BurlyWood")
-            roundedPaneSubpiece(
+            roundedPane(
                 [x_size, y_size, z_size],
                 r1 = round_edges_radius,
                 r2 = round_edges_radius,
@@ -34,7 +34,7 @@ module facadeBackPiece(
                 $fn = $fn
             );
 
-        centeredFourPaneThrows([x_size, y_size, z_size], throws_margin, throws_diameter, $fn = $fn);
+        centeredFourPaneThrowsEnveloppe([x_size, y_size, z_size], throws_margin, throws_diameter, $fn = $fn);
     }
 
 
