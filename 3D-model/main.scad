@@ -5,7 +5,6 @@ use <assets/usb-connector/usbConnector.scad>
 use <assets/on-off-button/onOffButton.scad>
 use <assets/max98357/max98357.scad>
 use <assets/esp32Wroom/esp32Wroom.scad>
-use <assets/battery/battery.scad>
 
 use <components/housingComponent.scad>
 use <components/motherBoardComponent.scad>

@@ -2,7 +2,7 @@ include <../configurations/global.scad>
 
 use <../pieces/facadeBackPiece.scad>
 
-use <../assets/battery/battery.scad>
+use <../openscad_modules/battery/battery.scad>
 use <../assets/on-off-button/onOffButton.scad>
 use <../assets/usb-connector/usbConnector.scad>
 

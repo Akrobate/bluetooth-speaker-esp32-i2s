@@ -44,7 +44,8 @@ module housingBorderPiece(
 
     epsilon = 0.1;
 
-    nut_encaps_depth = 2.6; // 2.8 is the depth of the battery nut encapsulation
+    // 2.8 is the depth of the battery nut encapsulation
+    nut_encaps_depth = 2.6;
 
     local_z_size = z_size - case_external_panes_thickness * 2;
 
