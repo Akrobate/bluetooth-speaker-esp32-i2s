@@ -4,7 +4,7 @@ use <../pieces/facadeBackPiece.scad>
 
 use <../openscad_modules/battery/battery.scad>
 use <../openscad_modules/button/onOffButton/onOffButton.scad>
-use <../assets/usb-connector/usbConnector.scad>
+use <../openscad_modules/usb-connector/usb-connector/usbConnector.scad>
 
 module backFacadeComponent() {
 

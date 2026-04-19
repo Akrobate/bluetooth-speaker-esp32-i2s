@@ -1,6 +1,6 @@
 
 include <../configurations/global.scad>
-include <../assets/usb-connector/configurations.scad>
+include <../openscad_modules/usb-connector/usb-connector/configurations.scad>
 
 
 /**

@@ -2,7 +2,6 @@ include <configurations/global.scad>
 
 use <openscad_modules/speaker/speaker40mm/speaker40mm.scad>
 use <openscad_modules/button/onOffButton/onOffButton.scad>
-use <assets/usb-connector/usbConnector.scad>
 use <assets/max98357/max98357.scad>
 use <assets/esp32Wroom/esp32Wroom.scad>
 

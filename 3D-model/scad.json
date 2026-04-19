@@ -9,6 +9,7 @@
     "button": "https://gitlab.com/openscad-modules/button.git#0.0.1",
     "commons": "https://gitlab.com/openscad-modules/commons.git#0.0.1",
     "housing": "https://gitlab.com/openscad-modules/housing.git#0.0.5",
-    "speaker": "https://gitlab.com/openscad-modules/speaker.git#0.0.1"
+    "speaker": "https://gitlab.com/openscad-modules/speaker.git#0.0.1",
+    "usb-connector": "https://gitlab.com/openscad-modules/usb-connector.git#0.0.2"
   }
 }
