@@ -3,6 +3,7 @@ use <../libraries/commons.scad>
 use <../libraries/electronics.scad>
 use <../enveloppes/centeredFourPaneThrowsEnveloppe.scad>
 use <../openscad_modules/housing/roundedPane.scad>
+use <../openscad_modules/usb-connector/usb-connector/usbConnectorThrowEnveloppe.scad>
 
 
  /**
@@ -35,17 +36,17 @@ module facadeBackPiece(
             );
 
         centeredFourPaneThrowsEnveloppe([x_size, y_size, z_size], throws_margin, throws_diameter, $fn = $fn);
+
+        translate([
+            chargerConnector_position_coords.x,
+            chargerConnector_position_coords.y
+        ])
+            usbConnectorThrowEnveloppe();
     }
 
 
     // CHARGER CONNECTOR
-    // translate([
-    //     chargerConnector_position_coords.x,
-    //     chargerConnector_position_coords.y,
-    //     chargerConnector_position_coords.z - case_external_panes_thickness
-    // ])
-    //     rotate([0, -90, 0])
-    //         usbConnectorThrowEnveloppe();
+
 }
 
 facadeBackPiece();

@@ -8,7 +8,7 @@ include <../assets/max98357/configurations.scad>;
 
 
 use <../enveloppes/onOffButtonThrowEnveloppe.scad>
-use <../enveloppes/usbConnectorThrowEnveloppe.scad>
+use <../openscad_modules/usb-connector/usb-connector/usbConnectorThrowEnveloppe.scad>
 
 use <../openscad_modules/housing/housingBorder.scad>
 use <./subpieces/facadeSpeakerHolder.scad>
